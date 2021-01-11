@@ -51,7 +51,7 @@ void __f(const char* names, Arg1&& arg1, Args&&... args){
 #define nax 110
 
 vector<int> graph[nax];
-bool mark[nax];
+// bool mark[nax];
 bool vis[nax];
 int dist[nax];
 
@@ -92,13 +92,14 @@ void test() {
   for (int i = 1; i <= numOfSources; i++) {
     int source;
     cin >> source;
-    mark[source] = 1; //mark source node
+    // mark[source] = 1; //mark source node
     sources.push_back(source);
   }
   bfs(sources);
   // cout << "From node " << source << "\n";
   for (int i = 1; i <= nodes; i++) {
-    if (mark[i] == 1) continue; //avoid printing source node
+    // if (mark[i] == 1) continue; //avoid printing source node 
+    if (dist[i] == 0) continue; //another approach to avoid printing source node
     cout << "Distance of " << i << " is : " << dist[i] << "\n";
   }
 }
